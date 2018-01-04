@@ -16,9 +16,9 @@
 	  			</div>	
 	  			<div class="tab_list">
 	  				<ul>
-	  					<li>
-	  						<span>1</span>
-	  						<p>情商是什么（所谓情商高，绝不</p>
+	  					<li v-for="data in arr">
+	  						<span style="padding-left: 8px;">{{data.id}}</span>
+	  						<p>{{data.book_name}}</p>  						
 	  					</li>
 	  				</ul>
 	  			</div>
@@ -28,8 +28,21 @@
 </template>
 
 <script>
+	import { bookdetailsList } from '../../../api/homepage'
 export default {
-  name: 'app'
+  data () {
+    return {
+      arr: [],
+      book_name: '',
+      author: ''
+    }
+  },
+  created () {
+    bookdetailsList().then(res => {
+      console.log(res.data)
+      this.arr = res.data.data
+    })
+  }
 }
 </script>
 
@@ -96,11 +109,15 @@ export default {
 	}
 	.tab_list ul li span{
 		float: left;
+		width: 28px;
+		
 	}
 	.tab_list ul li p{
-		float: right;
-		width: 188px;
+		float: left;
 		height: 36px;
-		background: green;
+		line-height: 36px;
+    overflow: hidden;
+    width: 182px;
+    font-size: 13px;
 	}
 </style>
