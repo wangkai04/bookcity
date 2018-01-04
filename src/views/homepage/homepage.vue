@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+	  <div class="main">
     	<booktop></booktop>
     	<bookcontent></bookcontent>
     	<bookspecial></bookspecial>
@@ -7,7 +7,7 @@
     	<booklike></booklike>
     	<bookreader></bookreader>
     	<bookbottom></bookbottom>
-  </div>
+	  </div>
 </template>
 
 <script>
@@ -32,6 +32,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+		.main{
+			width: 1200PX;
+			margin: 0 auto;
+		}
 </style>
