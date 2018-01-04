@@ -1,15 +1,32 @@
-<template>
-  <div id="app">
-    	头部
+﻿<template>
+  <div>
+    <lefts></lefts>
+    <lunbos></lunbos>
+    <centers></centers>
+    <rights></rights>
   </div>
 </template>
 
 <script>
+import lefts from './booktop_left.vue'
+import rights from './booktop_right.vue'
+import lunbos from './lunbo.vue'
+import centers from './booktop_center.vue'
+
 export default {
-  name: 'app'
+  components: {
+    lefts,
+    rights,
+    lunbos,
+    centers
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+  *{
+  	display: flex;
+  	margin: 0;
+  	padding: 0;
+  }
 </style>
