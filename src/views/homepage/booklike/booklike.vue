@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    	猜你喜欢
+  		猜你喜欢
+    	
   </div>
 </template>
 
@@ -10,6 +11,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

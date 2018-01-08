@@ -1,12 +1,14 @@
 <template>
+	<div>
 	  <div class="main">
     	<booktop></booktop>
     	<bookspecial></bookspecial>
     	<booktuijian></booktuijian>
     	<booklike></booklike>
     	<bookreader></bookreader>
-    	<bookbottom></bookbottom>
 	  </div>
+    	<bookbottom></bookbottom>
+	</div>
 </template>
 
 <script>
@@ -34,4 +36,5 @@ export default {
 			width: 1200PX;
 			margin: 0 auto;
 		}
+
 </style>

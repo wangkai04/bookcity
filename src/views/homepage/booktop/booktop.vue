@@ -1,5 +1,5 @@
 ﻿<template>
-  <div>
+  <div class="main">
     <lefts></lefts>
     <lunbos></lunbos>
     <centers></centers>
@@ -28,5 +28,6 @@ export default {
   	display: flex;
   	margin: 0;
   	padding: 0;
+  	
   }
 </style>

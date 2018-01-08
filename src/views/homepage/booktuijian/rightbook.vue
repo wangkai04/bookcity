@@ -2,18 +2,9 @@
   <div id="app">
   		<div class="main">
   			<div class="title">
-  				<span>图书畅销榜</span>
+  				<span>电子书榜</span>
   			</div>
-  			<div class="tab">
-	  			<div class="head">
-	  				<ul>
-	  					<li>总榜</li>
-	  					<li>小说</li>
-	  					<li>文字</li>
-	  					<li>经济</li>
-	  					<li>美食</li>
-	  				</ul>
-	  			</div>	
+  			<div class="tab">	
 	  			<div class="tab_list">
 	  				<ul>
 	  					<li v-for="data in arr">
@@ -71,31 +62,11 @@ export default {
 		height: 510px;
 		background: ;
 		border: 1px solid #EAEAEA;
-	}
-	.head ul li{
-		width: 46px;
-		height: 22px;
-		line-height: 22px;
-		float: left;
-		font-size: 12px;
-		text-align: center;
-		border-top: 2px solid white;
-		border: 1px solid #eaeaea;
-		cursor:pointer;
-	}
-	.head ul li:hover{
-		border-top: 2px solid #487a6f;
-		color: #487a6f;
-		font-weight: bold;
-		text-decoration: underline;
-		border-left: 1px solid #eaeaea;
-		border-right: 1px solid #eaeaea;
-		border-bottom: none;
+		border-top: 2px solid  #487a6f;
 	}
 	.tab_list{
 		width: 238px;
 		height: 484px;
-		margin-top: 25px;
 	}
 	.tab_list ul{
     height: 480px;

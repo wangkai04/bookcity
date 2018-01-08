@@ -35,6 +35,7 @@ export default {
 			width: 1190px;
 			height: 810px;
 			position: relative;
+			background: white;
 		}
 		.left{
 			width: 956px;
@@ -42,11 +43,11 @@ export default {
 			float: left;
 		}
 		.right{
-			width: 240px;
+			width: 260px;
 			height: 550px;
 			float: right;
 			position: absolute;
-			right: -10px;
+			right: -20px;
 			/*margin-left: 2px;*/
 		}
 		.bottom{
