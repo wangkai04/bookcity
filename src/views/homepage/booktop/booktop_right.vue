@@ -41,17 +41,17 @@
 	    	<div class="tab_head">
 	    		<ul class="tab_aa">
 	    			<li><a href="#"><span>总榜</span></a></li>
-	    			<li><a href="#"><span>总榜</span></a></li>
-	    			<li><a href="#"><span>总榜</span></a></li>
-	    			<li><a href="#"><span>总榜</span></a></li>
-	    			<li><a href="#"><span>总榜</span></a></li>
+	    			<li><a href="#"><span>童书</span></a></li>
+	    			<li><a href="#"><span>文学</span></a></li>
+	    			<li><a href="#"><span>历史</span></a></li>
+	    			<li><a href="#"><span>传记</span></a></li>
 	    		</ul>
 	    	</div>
 	    	<div class="tab_body">
 	    		<ul class="tab_body_a">
-	    			<li>
-	    				123
-	    				<img src="http://product.dangdang.com/25202782.html" />
+	    			<li v-for="(items,index) in arr">
+	    				<span class="num">{{items.id}}</span>
+	    				<p class="name"><a href="#">{{items.book_name}}</a></p>
 	    			</li>
 	    		</ul>
 	    	</div>
@@ -61,26 +61,49 @@
 </template>
 
 <script>
+import { bookdetailsList } from '../../../api/homepage'
   export default {
+  	data () {
+  		return {
+  			arr:[]
+  		}
+  	},
+  	created () {
+  		bookdetailsList().then(res => {
+  			this.arr = res.data.data
+  		})
+  	}
   }
 </script>
 
 <style scoped>
+	.name{
+    float: left;
+    height: 36px;
+    line-height: 36px;
+    overflow: hidden;
+    width: 182px;
+    font-size: 13px;
+	}
+	.num{
+		float: left;
+    width: 28px;
+    text-align: center;
+	}
 	.tab_body li{
-		height: 150px;
-    width: 218px;
-    margin-left: 9px;
-    position: relative;
+    height: 36px;
+    line-height: 36px;
+    width: 215px;
     border-bottom: 1px dotted #d8d8d8;
-    vertical-align: top;
-    list-style: none;
+    cursor: pointer;
 	}
 	.tab_body_a{
-    width: 218px;
+    width: 220px;
+    
 	}
 	.tab_body{
 		position: relative;
-    width: 218px;
+    width: 220px;
 	}
 	.tab_aa li span{
 		display: block;

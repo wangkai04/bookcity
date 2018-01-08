@@ -1,15 +1,27 @@
 <template>
-  <div id="app">
-    	读者推荐
+  <div id="next">
+    <readerleft></readerleft>
+    <readerright></readerright>
   </div>
 </template>
 
 <script>
+import readerleft from './reader_left.vue'
+import readerright from './reader_right.vue'
 export default {
-  name: 'app'
+  components: {
+    readerleft,
+    readerright
+  }
 }
 </script>
 
-<style>
-
+<style scoped>
+*{
+	margin: 0;
+	padding: 0;
+}
+#next{
+	border-bottom: 1px dashed #cccccc;
+}
 </style>
