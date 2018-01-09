@@ -6,18 +6,18 @@
           <ul class="list_a" style="left: 0px;">
             <li>
               <ul class="list_aa">
-                <li class="items1" v-for="dates in arrs">
+                <li class="items1" v-for="items in arr">
                   <a href="#" class="imgs">
-                    <img :src="dates.imgs" />
+                    <img :src="items.thumbnails" />
                   </a>
                   <p class="name">
-                    {{dates.pa}}
+                    {{items.book_name}}
                   </p>
                   <p class="tname">
-                    {{dates.pb}}
+                    {{items.author}}
                   </p>
                   <p class="price">
-                    123
+                    ￥{{items.price}}
                   </p>
                 </li>
               </ul>
@@ -30,20 +30,18 @@
 </template>
 
 <script>
+import { bookdetailsList } from '../../../api/homepage'
 export default {
   data () {
     return {
-      arrs: [
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'},
-        {imgs: 'http://img3m5.ddimg.cn/17/1/25160075-1_l_3.jpg', pa: '水彩的诀窍：Wendy Tait教你画花卉', pb: '【英】Jackie'}
-      ]
+      arr: []
     }
+  },
+  created () {
+    bookdetailsList().then(res => {
+      console.log(res.data.data)
+      this.arr = res.data.data
+    })
   }
 }
 </script>
@@ -103,7 +101,9 @@ export default {
   }
   .over{
     width: 750px;
+    height: 560px;
     position: relative;
+    overflow: hidden;
   }
   .book_body{
     width: 750px;
