@@ -50,7 +50,7 @@
             <div class="tab_body">
                 <ul class="tab_body_a">
                     <li v-for="(items,index) in arr">
-                        <span class="num">{{items.id}}</span>
+                        <span class="num">{{index+1}}</span>
                         <p class="name"><a href="#">{{items.book_name}}</a></p>
                     </li>
                 </ul>
@@ -65,7 +65,8 @@ import { bookdetailsList } from '../../../api/homepage'
 export default {
   data () {
     return {
-      arr: []
+      arr: [],
+      index: ''
     }
   },
   created () {

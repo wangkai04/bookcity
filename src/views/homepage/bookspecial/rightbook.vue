@@ -16,8 +16,8 @@
 	  			</div>	
 	  			<div class="tab_list">
 	  				<ul>
-	  					<li v-for="data in arr">
-	  						<span style="padding-left: 8px;">{{data.id}}</span>
+	  					<li v-for="(data,index)  in arr">
+	  						<span style="padding-left: 8px;">{{index+1}}</span>
 	  						<p>{{data.book_name}}</p>  						
 	  					</li>
 	  				</ul>
@@ -34,7 +34,8 @@ export default {
     return {
       arr: [],
       book_name: '',
-      author: ''
+      author: '',
+      index: ''
     }
   },
   created () {
@@ -42,6 +43,9 @@ export default {
       console.log(res.data)
       this.arr = res.data.data
     })
+  },
+  methods () {
+
   }
 }
 </script>
