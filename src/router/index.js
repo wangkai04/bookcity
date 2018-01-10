@@ -9,6 +9,6 @@ export default new Router({
   routes: [
     {path: '/', redirect: 'homepage'},
     {path: '/homepage', component: homepage},
-    {path: '/booksdetails/:id', component: booksdetails}
+    {path: '/details/:id', component: booksdetails}
   ]
 })
