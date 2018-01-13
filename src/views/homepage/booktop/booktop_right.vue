@@ -106,6 +106,15 @@ export default {
         position: relative;
     width: 220px;
     }
+   .tab_body ul li:nth-child(1) span{
+   	color: red;
+   }
+   .tab_body ul li:nth-child(2) span{
+   	color: red;
+   }
+   .tab_body ul li:nth-child(3) span{
+   	color: red;
+   }
     .tab_aa li span{
         display: block;
     text-align: center;

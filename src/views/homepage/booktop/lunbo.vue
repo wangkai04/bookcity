@@ -1,10 +1,10 @@
 <template>
     <div class="all">
-        <swiper class="a" :options="swiperOption" ref="mySwiper">
+       <swiper class="a" :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="item in arr">
 			<img :src="item.url" />
         </swiper-slide>
-      </swiper>
+      </swiper>      
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
       arr: [],
       swiperOption: {
         autoplay: {
-          delay: 1000,
+          delay: 2000,
           stopOnLastSlide: false,
           disableOnInteraction: false
         }
@@ -25,7 +25,7 @@ export default {
   },
   created () {
     bookallList().then(res => {
-//    console.log(res.data.data)
+//  console.log(res.data.data)
       this.arr = res.data.data
     })
   }
@@ -36,5 +36,8 @@ export default {
         width: 750px;
         height: 315px;
         margin-left: 10px;
+    }
+    .all img:hover{
+    	cursor: pointer;
     }
 </style>

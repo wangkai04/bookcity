@@ -39,7 +39,7 @@ export default {
   },
   created () {
     bookdetailsList().then(res => {
-      console.log(res.data.data)
+//    console.log(res.data.data)
       this.arr = res.data.data
     })
   }
