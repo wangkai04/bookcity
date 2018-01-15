@@ -7,8 +7,10 @@
             <li>
               <ul class="list_aa">
                 <li class="items1" v-for="items in arr">
-                  <a href="#" class="imgs">
-                    <img :src="items.thumbnails" />
+                  <a href="#" class="imgs" >
+                  	<router-link :to='"/bookjump/"+items.id'>
+	                    <img :src="items.thumbnails" />
+                  	</router-link>
                   </a>
                   <p class="name">
                     {{items.book_name}}
@@ -70,7 +72,7 @@ export default {
     overflow: hidden;
   }
   .imgs{
-    width: 150px;
+    width: 100px;
     display: block;
     height: 150px;
   }
@@ -81,9 +83,8 @@ export default {
   .list_aa .items1{
     width: 150px;
     margin-right: 47px;
-    margin-bottom: 16px;
+
     position: relative;
-    overflow: visible;
   }
   .list_aa{
     width: 800px;
@@ -92,6 +93,7 @@ export default {
   .list_a li{
     float: left;
     width: 750px;
+    margin-top: -2px;
     overflow: hidden;
   }
   .list_a{
@@ -101,7 +103,7 @@ export default {
   }
   .over{
     width: 750px;
-    height: 560px;
+    height: 600px;
     position: relative;
     overflow: hidden;
   }
