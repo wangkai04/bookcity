@@ -7,12 +7,15 @@
   			<div class="tab">
 	  			<div class="head">
 	  				<ul>
+                <li v-for="(item,index) in show" :class="{active: item.isShow}" @mouseover="list(item.data.id,index)"><span>{{item.data.category_name}}</span></li>
+              </ul>
+	  				<!--<ul>
 	  					<li>总榜</li>
 	  					<li>小说</li>
 	  					<li>文字</li>
 	  					<li>经济</li>
 	  					<li>美食</li>
-	  				</ul>
+	  				</ul>-->
 	  			</div>	
 	  			<div class="tab_list">
 	  				<ul>
@@ -28,24 +31,45 @@
 </template>
 
 <script>
-	import { bookdetailsList } from '../../../api/homepage'
+	import { getCategoryById, listByPage, bookdetailsList } from '../../../api/homepage'
 export default {
   data () {
     return {
       arr: [],
       book_name: '',
       author: '',
-      index: ''
+      index: '',
+      show: []
     }
   },
   created () {
     bookdetailsList().then(res => {
-      console.log(res.data)
+//    console.log(res.data)
       this.arr = res.data.data
     })
+    var categoryArr = [22, 23, 24, 25, 26]
+    for (let index in categoryArr) {
+      this.show[index] = {isShow: false, data: {}}
+      getCategoryById({id: categoryArr[index]}).then(res => {
+        this.show[index].data = res.data.data
+      })
+    }
+    this.show[0].isShow = true
+    this.queryList()
   },
-  methods () {
-
+  methods: {
+    list (id, index) {
+      for (let i in this.show) {
+        this.show[i].isShow = false
+      }
+      this.show[index].isShow = true
+      this.queryList(id)
+    },
+    queryList (id = 4) {
+      listByPage({page: 1, limit: 1, category_id: id}).then(res => {
+        this.arr = res.data.data
+      })
+    }
   }
 }
 </script>
@@ -87,7 +111,7 @@ export default {
 		border: 1px solid #eaeaea;
 		cursor:pointer;
 	}
-	.head ul li:hover{
+	.head ul .active{
 		border-top: 2px solid #487a6f;
 		color: #487a6f;
 		font-weight: bold;
@@ -96,6 +120,7 @@ export default {
 		border-right: 1px solid #eaeaea;
 		border-bottom: none;
 	}
+
 	.tab_list{
 		width: 238px;
 		height: 484px;
@@ -112,6 +137,15 @@ export default {
     margin-left: 9px;
     vertical-align: top;
     cursor:pointer;
+	}
+	.tab_list ul li:nth-child(1) span{
+		color: red;
+	}
+	.tab_list ul li:nth-child(2) span{
+		color: red;
+	}
+	.tab_list ul li:nth-child(3) span{
+		color: red;
 	}
 	.tab_list ul li span{
 		float: left;

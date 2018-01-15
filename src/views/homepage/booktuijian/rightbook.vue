@@ -31,7 +31,7 @@ export default {
   },
   created () {
     bookdetailsList().then(res => {
-      console.log(res.data)
+//    console.log(res.data)
       this.arr = res.data.data
     })
   }
@@ -80,6 +80,15 @@ export default {
     margin-left: 9px;
     vertical-align: top;
     cursor:pointer;
+	}
+	.tab_list ul li:nth-child(1) span{
+		color: red;
+	}
+	.tab_list ul li:nth-child(2) span{
+		color: red;
+	}
+	.tab_list ul li:nth-child(3) span{
+		color: red;
 	}
 	.tab_list ul li span{
 		float: left;

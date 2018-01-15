@@ -22,22 +22,22 @@
     data () {
       return {
         arr: [
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
+          {bookname: '特色书单'},
+          {bookname: '电子书 网络文学 阅读器'},
+          {bookname: '小说'},
+          {bookname: '文艺'},
+          {bookname: '青春文学/动漫。幽默'},
+          {bookname: '童书'},
+          {bookname: '教育'},
+          {bookname: '人文社科'},
+          {bookname: '经营'},
+          {bookname: '成功/励志'},
+          {bookname: '生活'},
+          {bookname: '科技'},
+          {bookname: '英文原版书 港台图书'},
+          {bookname: '当当出版'},
+          {bookname: '期刊/音像'},
+          {bookname: '创意文具'},
           {bookname: '特色图书'}
         ]
       }

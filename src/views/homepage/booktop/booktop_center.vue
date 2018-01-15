@@ -7,20 +7,20 @@
             <li>
               <ul class="list_aa">
                 <li class="items1" v-for="items in arr">
-                  <a href="#" class="imgs" >
-                  	<router-link :to='"/bookjump/"+items.id'>
-	                    <img :src="items.thumbnails" />
-                  	</router-link>
-                  </a>
-                  <p class="name">
-                    {{items.book_name}}
-                  </p>
-                  <p class="tname">
-                    {{items.author}}
-                  </p>
-                  <p class="price">
-                    ￥{{items.price}}
-                  </p>
+                  <router-link :to='"/bookjump/"+items.id'>
+                    <a href="#" class="imgs">
+                      <img :src="items.thumbnails" />
+                    </a>
+                    <p class="name">
+                      {{items.book_name}}
+                    </p>
+                    <p class="tname">
+                      {{items.author}}
+                    </p>
+                    <p class="price">
+                      ￥{{items.price}}
+                    </p>
+                  </router-link>
                 </li>
               </ul>
             </li>
@@ -41,7 +41,7 @@ export default {
   },
   created () {
     bookdetailsList().then(res => {
-      console.log(res.data.data)
+//    console.log(res.data.data)
       this.arr = res.data.data
     })
   }
@@ -72,7 +72,7 @@ export default {
     overflow: hidden;
   }
   .imgs{
-    width: 100px;
+    width: 150px;
     display: block;
     height: 150px;
   }
@@ -80,11 +80,15 @@ export default {
     float: left;
     list-style: none;
   }
+  .items1 a{
+  	color: #000000;
+  }
   .list_aa .items1{
     width: 150px;
     margin-right: 47px;
-
+    margin-bottom: 16px;
     position: relative;
+    overflow: visible;
   }
   .list_aa{
     width: 800px;
@@ -93,7 +97,6 @@ export default {
   .list_a li{
     float: left;
     width: 750px;
-    margin-top: -2px;
     overflow: hidden;
   }
   .list_a{
@@ -103,7 +106,7 @@ export default {
   }
   .over{
     width: 750px;
-    height: 600px;
+    height: 560px;
     position: relative;
     overflow: hidden;
   }

@@ -1,6 +1,9 @@
 <template>
   <div class="main">
-    		123
+		1212
+    		
+    	
+
   </div>
 </template>
 
@@ -15,4 +18,4 @@ export default {
 			width: 1200PX;
 		  margin: 0 auto;
 		}
-</style>
+</style>k

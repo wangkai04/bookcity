@@ -7,9 +7,9 @@
               </div>
               <div class="book_starts_bb">
                   <ul>
-                      <li><a href="#">阅享生活，低至8.9元</a></li>
-                      <li><a href="#">阅享生活，低至8.9元</a></li>
-                      <li><a href="#">阅享生活，低至8.9元</a></li>
+                      <li><a>阅享生活，低至8.9元</a></li>
+                      <li><a>阅享生活，低至8.9元</a></li>
+                      <li><a>阅享生活，低至8.9元</a></li>
                   </ul>
               </div>
           </div>
@@ -17,12 +17,12 @@
           <div class="book_starts_b">
               <div class="book_starts_cc">
                   新书预售
-                  <a href="#" style="float: right;margin-right: 20px;">预售更多</a>
+                  <a  style="float: right;margin-right: 20px;">预售更多</a>
               </div>
               <div class="list_a">
                   <ul>
                       <li>
-                          <a href="#"><img src="http://img3m1.ddimg.cn/22/3/25210471-1_f_3.jpg" /></a>
+                          <a ><img src="http://img3m1.ddimg.cn/22/3/25210471-1_f_3.jpg" /></a>
                           <span class="starts">
                               琅琊榜的哈哈哈哈(作者 著)
                           </span>
@@ -40,11 +40,7 @@
         <div class="tab_box">
             <div class="tab_head">
                 <ul class="tab_aa">
-                    <li><a href="#"><span>总榜</span></a></li>
-                    <li><a href="#"><span>童书</span></a></li>
-                    <li><a href="#"><span>文学</span></a></li>
-                    <li><a href="#"><span>历史</span></a></li>
-                    <li><a href="#"><span>传记</span></a></li>
+                   <li v-for="(item,index) in show" :class="{active: item.isShow}"><span>{{item.data.category_name}}</span></li>
                 </ul>
             </div>
             <div class="tab_body">
@@ -61,18 +57,45 @@
 </template>
 
 <script>
-import { bookdetailsList } from '../../../api/homepage'
+import { getCategoryById, listByPage, bookdetailsList } from '../../../api/homepage'
 export default {
   data () {
     return {
       arr: [],
-      index: ''
+      book_name: '',
+      author: '',
+      index: '',
+      show: []
     }
   },
   created () {
     bookdetailsList().then(res => {
+//    console.log(res.data)
       this.arr = res.data.data
     })
+    var categoryArr = [22, 23, 24, 25, 26]
+    for (let index in categoryArr) {
+      this.show[index] = {isShow: false, data: {}}
+      getCategoryById({id: categoryArr[index]}).then(res => {
+        this.show[index].data = res.data.data
+      })
+    }
+    this.show[0].isShow = true
+    this.queryList()
+  },
+  methods: {
+    list (id, index) {
+      for (let i in this.show) {
+        this.show[i].isShow = false
+      }
+      this.show[index].isShow = true
+      this.queryList(id)
+    },
+    queryList (id = 4) {
+      listByPage({page: 1, limit: 1, category_id: id}).then(res => {
+        this.arr = res.data.data
+      })
+    }
   }
 }
 </script>
@@ -106,6 +129,15 @@ export default {
         position: relative;
     width: 220px;
     }
+   .tab_body ul li:nth-child(1) span{
+   	color: red;
+   }
+   .tab_body ul li:nth-child(2) span{
+   	color: red;
+   }
+   .tab_body ul li:nth-child(3) span{
+   	color: red;
+   }
     .tab_aa li span{
         display: block;
     text-align: center;
