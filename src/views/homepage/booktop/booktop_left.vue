@@ -38,21 +38,6 @@
           {bookname: '特色图书'},
           {bookname: '特色图书'},
           {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
-          {bookname: '特色图书'},
           {bookname: '特色图书'}
         ]
       }
