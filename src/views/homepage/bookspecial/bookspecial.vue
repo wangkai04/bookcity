@@ -36,6 +36,7 @@ export default {
 			height: 810px;
 			position: relative;
 			background: white;
+			margin-top: ;
 		}
 		.left{
 			width: 956px;

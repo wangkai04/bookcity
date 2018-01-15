@@ -7,9 +7,9 @@
               </div>
               <div class="book_starts_bb">
                   <ul>
-                      <li><a href="#">阅享生活，低至8.9元</a></li>
-                      <li><a href="#">阅享生活，低至8.9元</a></li>
-                      <li><a href="#">阅享生活，低至8.9元</a></li>
+                      <li><a>阅享生活，低至8.9元</a></li>
+                      <li><a>阅享生活，低至8.9元</a></li>
+                      <li><a>阅享生活，低至8.9元</a></li>
                   </ul>
               </div>
           </div>
@@ -17,12 +17,12 @@
           <div class="book_starts_b">
               <div class="book_starts_cc">
                   新书预售
-                  <a href="#" style="float: right;margin-right: 20px;">预售更多</a>
+                  <a  style="float: right;margin-right: 20px;">预售更多</a>
               </div>
               <div class="list_a">
                   <ul>
                       <li>
-                          <a href="#"><img src="http://img3m1.ddimg.cn/22/3/25210471-1_f_3.jpg" /></a>
+                          <a ><img src="http://img3m1.ddimg.cn/22/3/25210471-1_f_3.jpg" /></a>
                           <span class="starts">
                               琅琊榜的哈哈哈哈(作者 著)
                           </span>

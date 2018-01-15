@@ -2,25 +2,15 @@
 	<div>
 		<div class="top_lefts">
 			<ul class="list_a">
-				<li>
-					<a href="#"><img src="http://img3m3.ddimg.cn/35/33/23530553-1_l.jpg" /></a>
-					<p class="name"><a href="#">最美的教育最简单</a></p>
+				<li v-for="data in arr">
+					<a><img :src="data.thumbnails" alt="" /></a>   
+					<p class="name"><a>{{data.book_name}}</a></p>
 					<p class="tname">
 						<span class="tname_a">
 							<span style="width: 90%;"></span>
 						</span>
 					</p>
-					<p class="price">￥35.5</p>
-				</li>
-				<li>
-					<a href="#"><img src="http://img3m3.ddimg.cn/35/33/23530553-1_l.jpg" /></a>
-					<p class="name"><a href="#">最美的教育最简单</a></p>
-					<p class="tname">
-						<span class="tname_a">
-							<span style="width: 90%;"></span>
-						</span>
-					</p>
-					<p class="price">￥35.5</p>
+					<p class="price">￥{{data.price}}</p>
 				</li>
 			</ul>
 		</div>
@@ -28,6 +18,21 @@
 </template>
 
 <script>
+import { bookdetailsList } from '../../../api/homepage'
+export default {
+  data () {
+    return {
+      arr: [],
+      book_name: '',
+      price: ''
+    }
+  },
+  created () {
+    bookdetailsList().then(res => {
+      this.arr = res.data.data
+    })
+  }
+}
 </script>
 
 <style scoped>
@@ -39,6 +44,9 @@
     font-size: 14px;
     display: block;
     margin-top: 10px;
+    color: red;
+    font-weight: bold;
+    font-family: "微软雅黑";
   }
   .tname_a span{
   	display: block;
@@ -59,14 +67,19 @@
   .tname{
   	height: 14px;
     padding: 3px 0 3px 22px;
-    margin-top: -20px;
+    margin-top: -5px;
   }
   .name{
   	padding: 7px 23px 0;
     height: 36px;
     line-height: 18px;
     overflow: hidden;
-    font-size: 12px;
+    font-size: 10px;
+  }
+  .name:hover{
+  	color: #EC7814;
+  	text-decoration: underline;
+  	cursor: pointer;
   }
   .list_a li{
   	width: 150px;
@@ -80,6 +93,9 @@
     position: relative;
     left: 0;
     margin-left: 20px;
+  }
+  .list_a img{
+  	cursor: pointer;
   }
   .top_lefts{
   	width: 960px;

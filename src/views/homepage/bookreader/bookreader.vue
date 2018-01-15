@@ -23,5 +23,6 @@ export default {
 }
 #next{
 	border-bottom: 1px dashed #cccccc;
+	margin-top: 20px;
 }
 </style>

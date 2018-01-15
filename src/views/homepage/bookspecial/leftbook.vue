@@ -15,7 +15,7 @@
                     <img class="img1" :src="data.thumbnails" alt="" />
                     <p class="name">{{data.book_name}}</p>
                     <span class="cent"><img src="../../../assets/images/book.png"/>当当独家特供</span>
-                    <p class="price"><span class="le">￥{{data.price}}</span><span class="ri">￥{{data.price}}</span></p>
+                    <p class="price"><span class="le">￥{{data.price}}</span><span class="ri">￥{{data.price2}}</span></p>
                   </router-link>
                 </li>
               </ul>              
