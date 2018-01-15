@@ -30,4 +30,7 @@ export default {
   	padding: 0;
   	
   }
+  .main{
+  	height: 840px;
+  }
 </style>
