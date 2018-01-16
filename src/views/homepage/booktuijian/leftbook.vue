@@ -2,7 +2,7 @@
   <div id="app">
       <div class="main">
           <div class="head">
-              <h3><img src="../../../assets/images/title1.png"></h3>
+              <h3><img src="../../../assets/images/title3.png"></h3>
               <ul>
                 <li v-for="(item,index) in show" :class="{active: item.isShow}" @mouseover="list(item.data.id,index)"><span>{{item.data.category_name}}</span></li>
               </ul>
@@ -57,7 +57,7 @@ export default {
       this.queryList(id)
     },
     queryList (id = 11) {
-      listByPage({page: 1, limit: 1, category_id: id}).then(res => {
+      listByPage({page: 1, limit: 10, category_id: id}).then(res => {
         this.arr = res.data.data
       })
     }

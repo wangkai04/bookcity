@@ -7,9 +7,9 @@
               </div>
               <div class="book_starts_bb">
                   <ul>
-                      <li><a>阅享生活，低至8.9元</a></li>
-                      <li><a>阅享生活，低至8.9元</a></li>
-                      <li><a>阅享生活，低至8.9元</a></li>
+                      <li><a>仅限24小时，文艺图书5折抢！</a></li>
+                      <li><a>超级品类日，亲子没事地图尽享5折！</a></li>
+                      <li><a>2018精美文化日历，低至5折！</a></li>
                   </ul>
               </div>
           </div>
@@ -39,13 +39,16 @@
         
         <div class="tab_box">
             <div class="tab_head">
-                <ul class="tab_aa">
+            	<ul  class="tab_aa">
+                <li v-for="(item,index) in show" :class="{active: item.isShow}" @mouseover="list(item.data.id,index)"><span>{{item.data.category_name}}</span></li>
+              </ul>
+                <!--<ul class="tab_aa">
                     <li><a href="#"><span>总榜</span></a></li>
                     <li><a href="#"><span>童书</span></a></li>
                     <li><a href="#"><span>文学</span></a></li>
                     <li><a href="#"><span>历史</span></a></li>
                     <li><a href="#"><span>传记</span></a></li>
-                </ul>
+                </ul>-->
             </div>
             <div class="tab_body">
                 <ul class="tab_body_a">
@@ -61,18 +64,45 @@
 </template>
 
 <script>
-import { bookdetailsList } from '../../../api/homepage'
+	import { getCategoryById, listByPage, bookdetailsList } from '../../../api/homepage'
 export default {
   data () {
     return {
       arr: [],
-      index: ''
+      book_name: '',
+      author: '',
+      index: '',
+      show: []
     }
   },
   created () {
     bookdetailsList().then(res => {
+//    console.log(res.data)
       this.arr = res.data.data
     })
+    var categoryArr = [22, 23, 24, 25, 26]
+    for (let index in categoryArr) {
+      this.show[index] = {isShow: false, data: {}}
+      getCategoryById({id: categoryArr[index]}).then(res => {
+        this.show[index].data = res.data.data
+      })
+    }
+    this.show[0].isShow = true
+    this.queryList()
+  },
+  methods: {
+    list (id, index) {
+      for (let i in this.show) {
+        this.show[i].isShow = false
+      }
+      this.show[index].isShow = true
+      this.queryList(id)
+    },
+    queryList (id = 4) {
+      listByPage({page: 1, limit: 10, category_id: id}).then(res => {
+        this.arr = res.data.data.slice(0, 10)
+      })
+    }
   }
 }
 </script>
@@ -147,6 +177,7 @@ export default {
     }
     .tab_box{
         border: 1px solid #EAEAEA;
+        height: 450px;
     }
     *{
         padding: 0;
@@ -195,12 +226,17 @@ export default {
         margin-top: -1px;
     }
     .book_starts_bb ul li{
-        margin-left: 20px;
+        margin-left: 10px;
         float: left;
     width: 238px;
     position: relative;
     }
+    .book_starts_bb ul li:hover{
+    	color: #EC7814;
+    	text-decoration: underline;
+    }
     .book_starts_bb ul li a{
+    	font-size: 12px;
         color: #000;
     display: block;
     height: 22px;

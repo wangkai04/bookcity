@@ -30,18 +30,40 @@
 </template>
 
 <script>
-import { bookdetailsList } from '../../../api/homepage'
+import { getCategoryById, listByPage } from '../../../api/homepage'
 export default {
   data () {
     return {
-      arr: []
+      arr: [],
+      book_name: '',
+      author: '',
+      show: []
     }
   },
   created () {
-    bookdetailsList().then(res => {
-//    console.log(res.data.data)
-      this.arr = res.data.data
-    })
+    var categoryArr = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+    for (let index in categoryArr) {
+      this.show[index] = {isShow: false, data: {}}
+      getCategoryById({id: categoryArr[index]}).then(res => {
+        this.show[index].data = res.data.data
+      })
+    }
+    this.show[0].isShow = true
+    this.queryList()
+  },
+  methods: {
+    list (id, index) {
+      for (let i in this.show) {
+        this.show[i].isShow = false
+      }
+      this.show[index].isShow = true
+      this.queryList(id)
+    },
+    queryList (id = 11) {
+      listByPage({page: 1, limit: 8, category_id: id}).then(res => {
+        this.arr = res.data.data
+      })
+    }
   }
 }
 </script>
@@ -54,7 +76,8 @@ export default {
     overflow: hidden;  
     padding-left: 20px;
     height: 36px;
-    color: red;      
+    color: red;   
+    font-family: "微软雅黑";   
   }
   .tname{
     padding: 0 20px;
@@ -62,12 +85,14 @@ export default {
     line-height: 20px;
     height: 23px;
     color: #aaa;
+    font-size: 12px;
   }
   .name{
     padding: 7px 20px 0;
     height: 18px;
     line-height: 18px;
     overflow: hidden;
+    font-size: 12px;
   }
   .imgs{
     width: 150px;
@@ -80,14 +105,14 @@ export default {
   }
   .list_aa .items1{
     width: 150px;
-    margin-right: 47px;
-    margin-bottom: 16px;
+    margin-right: 45px;
+    margin-bottom: ;
     position: relative;
     overflow: visible;
   }
   .list_aa{
     width: 800px;
-    padding-top: 25px;
+    padding-top: 15px;
   }
   .list_a li{
     float: left;
