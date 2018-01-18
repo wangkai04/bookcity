@@ -39,6 +39,7 @@
 	.left_aaa ul li:hover{
 		color: #EC7814;
 		text-decoration: underline;
+		cursor: pointer;
 	}
 	.left_aaa ul{
 		padding-left: 9px;

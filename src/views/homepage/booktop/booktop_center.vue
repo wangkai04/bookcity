@@ -7,18 +7,20 @@
             <li>
               <ul class="list_aa">
                 <li class="items1" v-for="items in arr">
-                  <a href="#" class="imgs">
-                    <img :src="items.thumbnails" />
-                  </a>
-                  <p class="name">
-                    {{items.book_name}}
-                  </p>
-                  <p class="tname">
-                    {{items.author}}
-                  </p>
-                  <p class="price">
-                    ￥{{items.price}}
-                  </p>
+                  <router-link :to='"/bookjump/"+items.id'>
+                    <a href="#" class="imgs">
+                      <img :src="items.thumbnails" />
+                    </a>
+                    <p class="name">
+                      {{items.book_name}}
+                    </p>
+                    <p class="tname">
+                      {{items.author}}
+                    </p>
+                    <p class="price">
+                      ￥{{items.price}}
+                    </p>
+                  </router-link>
                 </li>
               </ul>
             </li>
@@ -102,6 +104,9 @@ export default {
   .list_aa li{
     float: left;
     list-style: none;
+  }
+  .items1 a{
+  	color: #000000;
   }
   .list_aa .items1{
     width: 150px;
