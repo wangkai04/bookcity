@@ -57,7 +57,7 @@ export default {
       this.queryList(id)
     },
     queryList (id = 11) {
-      listByPage({page: 1, limit: 1, category_id: id}).then(res => {
+      listByPage({page: 1, limit: 10, category_id: id}).then(res => {
         this.arr = res.data.data
       })
     }

@@ -73,6 +73,7 @@
   }
   .left_body{
   	width: 190px;
+  	height: 785px;
   	position: relative;
   	background: url(http://book.dangdang.com/Standard/Book/Extend/hosts/images/home/sidemenu_bg2.png)-20px 0px repeat-y;
     border-top: 2px dotted #487a6f;

@@ -13,8 +13,8 @@
                 <ul class="first">
                     <li class="line1">
                         <span class="num1">1.</span>
-                        <a href="#"><img src="http://img3m9.ddimg.cn/74/1/23685329-1_b_28.jpg" /></a>
-                        <p class="name"><a href="#">岛上书店（每个人的生命中，都有无比艰难的那一年，将人生变得美好而辽阔）</a></p>
+                        <a><img src="http://img3m9.ddimg.cn/74/1/23685329-1_b_28.jpg" /></a>
+                        <p class="name"><a>岛上书店（每个人的生命中，都有无比艰难的那一年，将人生变得美好而辽阔）</a></p>
                         <p class="tname">
                             <span class="tname_a">
                                 <span style="width: 90%;"></span>
@@ -44,8 +44,8 @@
                         <ul class="list_aa">
                             <li>
                                 <span>1</span>
-                                <a href="#"><img src="http://img3m5.ddimg.cn/81/17/22742955-1_l_13.jpg" /></a>
-                                <p class="names"><a href="#">美国儿童百科</a></p>
+                                <a><img src="http://img3m5.ddimg.cn/81/17/22742955-1_l_13.jpg" /></a>
+                                <p class="names"><a>美国儿童百科</a></p>
                                 <p class="start">
                                     <span class="leven">
                                         <span style="width: 92%;"></span>

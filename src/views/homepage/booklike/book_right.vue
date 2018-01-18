@@ -39,6 +39,7 @@
 	.left_aaa ul li:hover{
 		color: #EC7814;
 		text-decoration: underline;
+		cursor: pointer;
 	}
 	.left_aaa ul{
 		padding-left: 9px;
@@ -65,7 +66,7 @@
 	    background: #f7f7f7;
 	    height: 510px;
 	    overflow: hidden;
-	    margin-top: 50px;
+	    margin-top: 60px;
 	    margin-left: -240px;
 	}
 </style>

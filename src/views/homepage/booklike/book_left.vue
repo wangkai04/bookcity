@@ -18,19 +18,40 @@
 </template>
 
 <script>
-import { bookdetailsList } from '../../../api/homepage'
+import { getCategoryById, listByPage } from '../../../api/homepage'
 export default {
   data () {
     return {
       arr: [],
       book_name: '',
-      price: ''
+      author: '',
+      show: []
     }
   },
   created () {
-    bookdetailsList().then(res => {
-      this.arr = res.data.data
-    })
+    var categoryArr = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+    for (let index in categoryArr) {
+      this.show[index] = {isShow: false, data: {}}
+      getCategoryById({id: categoryArr[index]}).then(res => {
+        this.show[index].data = res.data.data
+      })
+    }
+    this.show[0].isShow = true
+    this.queryList()
+  },
+  methods: {
+    list (id, index) {
+      for (let i in this.show) {
+        this.show[i].isShow = false
+      }
+      this.show[index].isShow = true
+      this.queryList(id)
+    },
+    queryList (id = 11) {
+      listByPage({page: 1, limit: 10, category_id: id}).then(res => {
+        this.arr = res.data.data
+      })
+    }
   }
 }
 </script>

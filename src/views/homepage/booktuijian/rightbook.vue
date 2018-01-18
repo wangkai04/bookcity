@@ -31,8 +31,7 @@ export default {
   },
   created () {
     bookdetailsList().then(res => {
-//    console.log(res.data)
-      this.arr = res.data.data
+      this.arr = res.data.data.slice(0, 10)
     })
   }
 }

@@ -2,7 +2,7 @@
 	<div>
 		<div class="top_title">
 		    <h3 class="title"></h3>
-		    <a href="#">换一批</a>
+		    <a>换一批</a>
 		</div>
 	</div>
 </template>
@@ -39,5 +39,6 @@
         position: relative;
         border-bottom: 1px solid #487a6f;
         width: 1200px;
+        margin-top: 10px;
 	}
 </style>
