@@ -56,22 +56,14 @@ export default {
         white-space: nowrap;
         padding: 15px 0 0;
     }
-    .pic a img{
-        width: 130px;
-        height: 130px;
-    }
-    .pic a{
-        display: block;
-        width: 130px;
-        height: 130px;
-        overflow: hidden;
-        text-align: center;
-    }
     .pic{
-        width: 130px;
-        height: 130px;
-        overflow: hidden;
-        position: relative;
+        display: block;
+	    width: 150px;
+	    height: 150px;
+	    overflow: hidden;
+	    margin: 0 auto;
+	    border: 1px solid #fff;
+	    position: relative;
     }
     .none_b li{
         padding: 10px;

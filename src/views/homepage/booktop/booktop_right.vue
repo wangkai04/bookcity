@@ -40,7 +40,7 @@
         <div class="tab_box">
             <div class="tab_head">
                 <ul class="tab_aa">
-                   <li v-for="(item,index) in show" :class="{active: item.isShow}"><span>{{item.data.category_name}}</span></li>
+                   <li v-for="(item,index) in show"><span>{{item.data.category_name}}</span></li>
                 </ul>
             </div>
             <div class="tab_body">
@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { getCategoryById, listByPage, bookdetailsList } from '../../../api/homepage'
+// import { bookdetailsList } from '../../../api/homepage'
 export default {
   data () {
     return {
@@ -69,33 +69,8 @@ export default {
     }
   },
   created () {
-    bookdetailsList().then(res => {
-//    console.log(res.data)
-      this.arr = res.data.data
-    })
-    var categoryArr = [22, 23, 24, 25, 26]
-    for (let index in categoryArr) {
-      this.show[index] = {isShow: false, data: {}}
-      getCategoryById({id: categoryArr[index]}).then(res => {
-        this.show[index].data = res.data.data
-      })
-    }
-    this.show[0].isShow = true
-    this.queryList()
   },
   methods: {
-    list (id, index) {
-      for (let i in this.show) {
-        this.show[i].isShow = false
-      }
-      this.show[index].isShow = true
-      this.queryList(id)
-    },
-    queryList (id = 4) {
-      listByPage({page: 1, limit: 1, category_id: id}).then(res => {
-        this.arr = res.data.data
-      })
-    }
   }
 }
 </script>
